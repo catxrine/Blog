@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import UserPost from "./components/UserPost";
+import HomePage from "./components/HomePage/HomePage.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -16,6 +17,10 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/login",
       element: <Login />,
     },
     {
