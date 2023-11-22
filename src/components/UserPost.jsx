@@ -5,10 +5,7 @@ export default function UserPost({ author, title, description, likes }) {
   const [show, setShow] = useState(false);
   return (
     <>
-      <div
-        className="flex items-center justify-center"
-        onClick={(e) => console.log(e)}
-      >
+      <div className="flex items-center justify-center mt-3">
         <div className="rounded-xl border p-5 shadow-md w-[800px] bg-white">
           <div className="flex w-full items-center justify-between border-b pb-3">
             <div className="flex w-full items-center flex-row justify-between space-x-3">

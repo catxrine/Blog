@@ -13,7 +13,7 @@
     @apply rounded w-full min-w-[40vw] max-w-[40vw] bg-gray-100 p-3 border border-gray-300 outline-none;
   }
   .btn-variant-1 {
-    @apply block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none;
+    @apply block cursor-pointer w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none;
   }
   .label-primary {
     @apply mb-4 text-center text-2xl font-semibold text-gray-700;

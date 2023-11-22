@@ -4,23 +4,44 @@ import "./styles/bootstrap.min.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PageNotFound from "./components/PageNotFound";
-import AdminControl from "./pages/AdminControl";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
+import AdminControl from "./pages/Admin/AdminControl";
+import Home from "./pages/Admin/Home";
+import Profile from "./pages/Admin/Profile";
+import Settings from "./pages/Admin/Settings";
 import UserPost from "./components/UserPost";
+import PublicHome from "./pages/Public/PublicHome";
+import Article from "./components/Article/Article";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import PublicLayout from "./components/PublicLayout/PublicLayout";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <PublicLayout />,
+      children: [
+        {
+          path: "/",
+          element: <PublicHome />,
+        },
+        {
+          path: "article",
+          element: <Article />,
+        },
+      ],
+    },
+    {
+      path: "/login",
       element: <Login />,
     },
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/article",
+      element: <Article />,
     },
     {
       path: "/home",

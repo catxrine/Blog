@@ -9,7 +9,7 @@ export default function Layout({ left, right }) {
         </div>
         <div className="p-5 row-span-2 overflow-x-auto bg-white text-black transition duration-700 ease-in-out">
           <div>
-            <div className="items-center float-right justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+            <div className="items-center float-right justify-between h-full px-6 mx-auto text-purple-600">
               <ul className="flex items-center">
                 <li>
                   <button
@@ -27,7 +27,7 @@ export default function Layout({ left, right }) {
                     </svg>
                     <span
                       aria-hidden="true"
-                      className="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"
+                      className="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full"
                     ></span>
                   </button>
                 </li>
