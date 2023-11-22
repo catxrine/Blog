@@ -1,5 +1,5 @@
-import Tags from "../components/Tags";
-import Input from "../components/Input";
+import Tags from "../../components/Tags.jsx";
+import Input from "../../components/Input.jsx";
 import { useState } from "react";
 
 export default function Settings() {

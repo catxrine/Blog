@@ -1,6 +1,6 @@
-import UserPost from "../components/UserPost";
-import Tags from "../components/Tags";
-import NewPost from "../components/NewPost";
+import UserPost from "../../components/UserPost.jsx";
+import Tags from "../../components/Tags.jsx";
+import NewPost from "../../components/NewPost.jsx";
 import { useState } from "react";
 
 export default function Profile() {

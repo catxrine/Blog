@@ -4,10 +4,10 @@ import "./styles/bootstrap.min.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PageNotFound from "./components/PageNotFound";
-import AdminControl from "./pages/AdminControl";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
+import AdminControl from "./pages/Admin/AdminControl.jsx";
+import Home from "./pages/Admin/Home.jsx";
+import Profile from "./pages/Admin/Profile.jsx";
+import Settings from "./pages/Admin/Settings.jsx";
 import UserPost from "./components/UserPost";
 import HomePage from "./components/HomePage/HomePage.jsx";
 

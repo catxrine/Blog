@@ -1,6 +1,6 @@
-import Card from "../components/Card";
-import UsersTable from "../components/UsersTable";
-import UserPost from "../components/UserPost";
+import Card from "../../components/Card.jsx";
+import UsersTable from "../../components/UsersTable.jsx";
+import UserPost from "../../components/UserPost.jsx";
 export default function AdminControl() {
   return (
     <div>
