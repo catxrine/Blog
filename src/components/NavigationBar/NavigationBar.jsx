@@ -1,6 +1,31 @@
 import { Link } from "react-router-dom";
+import { isAuth } from "../../constants/user";
+import Categories from "../Categories/Categories";
+import "../../../public/js/navbar.js";
 
 export default function NavigationBar() {
+  const categories = ["All", "Science", "Cooking", "Ideas"];
+  const authorizedTemplate = () => {
+    return (
+      <li>
+        <Link to="/">Logout</Link>
+      </li>
+    );
+  };
+
+  const unAutorizedTemplate = () => {
+    return (
+      <>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+      </>
+    );
+  };
+
   return (
     <>
       <div className="site-mobile-menu site-navbar-target">
@@ -12,7 +37,7 @@ export default function NavigationBar() {
         <div className="site-mobile-menu-body"></div>
       </div>
 
-      <nav className="site-nav">
+      <nav className="site-nav top-0 sticky z-10">
         <div className="container">
           <div className="menu-bg-wrap">
             <div className="site-navigation">
@@ -23,18 +48,6 @@ export default function NavigationBar() {
                   </Link>
                 </div>
                 <div className="col-8 text-center">
-                  <form
-                    action="#"
-                    className="search-form d-inline-block d-lg-none"
-                  >
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Search..."
-                    />
-                    <span className="bi-search"></span>
-                  </form>
-
                   <ul className="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                     <li className="active">
                       <Link to="/">Home</Link>
@@ -42,24 +55,16 @@ export default function NavigationBar() {
                     <li className="has-children">
                       <a>Categoties</a>
                       <ul className="dropdown">
-                        <li>
-                          <a href="search-result.html">Science</a>
-                        </li>
-                        <li>
-                          <a href="blog.html">Cooking</a>
-                        </li>
-                        <li>
-                          <a href="single.html">Ideas</a>
-                        </li>
+                        <Categories categories={categories} />
                       </ul>
                     </li>
-                    <li>
-                      <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                      <Link to="/register">Register</Link>
-                    </li>
+                    {isAuth ? authorizedTemplate() : unAutorizedTemplate()}
                   </ul>
+                </div>
+                <div className="col-2 text-end">
+                  <a className="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+                    <span></span>
+                  </a>
                 </div>
               </div>
             </div>

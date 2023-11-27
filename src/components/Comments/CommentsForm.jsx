@@ -1,8 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import { isAuth } from "../../constants/user";
 export default function CommentsForm() {
+  const navigate = useNavigate();
   return (
     <div className="comment-form-wrap pt-5">
       <h3 className="mb-5">Leave a comment</h3>
-      <form action="#" className="p-5 bg-light">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          !isAuth && navigate("/login");
+        }}
+        className="p-5 bg-light"
+      >
         <div className="form-group">
           <label htmlFor="name">Name *</label>
           <input type="text" className="form-control" id="name" />

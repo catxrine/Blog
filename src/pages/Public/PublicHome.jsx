@@ -1,9 +1,5 @@
-import BlogList from "../../components/BlogList/BlogList";
+import Recent from "../../components/Recent/Recent";
 
 export default function PublicHome() {
-  return (
-    <>
-      <BlogList />
-    </>
-  );
+  return <Recent />;
 }

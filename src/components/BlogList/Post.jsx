@@ -1,25 +1,25 @@
 import { Link } from "react-router-dom";
 
-export default function Post() {
+export default function Post({ author, date, description, title }) {
   return (
     <div className="col-lg-4 mb-4">
       <div className="post-entry-alt">
         <a href="single.html" className="img-link">
           <img
-            src="images/img_5_horizontal.jpg"
+            src="/public/images/img_5_horizontal.jpg"
             alt="Image"
             className="img-fluid"
           />
         </a>
         <div className="excerpt">
           <h2>
-            <a href="single.html">
+            <Link to="/article/1">
               Startup vs corporate: What job suits you best?
-            </a>
+            </Link>
           </h2>
           <div className="post-meta align-items-center text-left clearfix">
             <span className="d-inline-block mt-1">
-              By <a href="#">David Anderson</a>
+              By <Link to="/user/1">David Anderson</Link>
             </span>
             <span>&nbsp;-&nbsp; July 19, 2019</span>
           </div>
@@ -30,11 +30,7 @@ export default function Post() {
             facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id
             est.
           </p>
-          <p>
-            <Link to="/article" className="read-more">
-              Continue Reading
-            </Link>
-          </p>
+          <Link to="/article/1">Continue Reading</Link>
         </div>
       </div>
     </div>
