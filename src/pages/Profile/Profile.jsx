@@ -1,6 +1,6 @@
-import Post from "../BlogList/Post";
-import Pagination from "../Pagination";
-import ProfileIntro from "../ProfileIntro/ProfileIntro";
+import Posts from "../../components/BlogList/Posts";
+import Pagination from "../../components/Pagination/Pagination";
+import ProfileIntro from "../../components/ProfileIntro/ProfileIntro";
 export default function Profile() {
   return (
     <div>
@@ -15,14 +15,7 @@ export default function Profile() {
         debitis voluptate nulla quo veniam fuga sit molestias minus."
             />
           </div>
-          <div className="row">
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-          </div>
+          <Posts />
         </div>
       </div>
       <Pagination />

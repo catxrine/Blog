@@ -1,5 +1,5 @@
 import Tag from "./Tag";
-export default function Tags() {
+export default function Tags({ tagsData }) {
   return (
     <div className="sidebar-box">
       <h3 className="heading">Tags</h3>

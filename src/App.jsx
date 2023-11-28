@@ -16,7 +16,7 @@ import BlogList from "./components/BlogList/BlogList";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PublicLayout from "./components/PublicLayout/PublicLayout";
-import Profile from "./components/Profile/Profile";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   const router = createBrowserRouter([

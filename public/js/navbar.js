@@ -44,7 +44,7 @@
     var mTog;
     menuToggle.forEach((mtoggle) => {
       mTog = mtoggle;
-      mtoggle.addEventListener("click", (e) => {
+      mtoggle.addEventListener("click", () => {
         if (document.body.classList.contains("offcanvas-menu")) {
           document.body.classList.remove("offcanvas-menu");
           mtoggle.classList.remove("active");

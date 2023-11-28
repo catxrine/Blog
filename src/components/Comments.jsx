@@ -1,4 +1,4 @@
-import Comment from "./Comment";
+import Comment from "./Comments/Comment";
 
 export default function Comments({ setShow }) {
   return (
@@ -15,34 +15,30 @@ export default function Comments({ setShow }) {
             </span>
           </div>
           <hr className="m-0 p-0" />
-          <ul className="list-unstyled px-5 py-3flex flex-col overflow-y-auto h-[50vh]">
+          <ul className="list-unstyled px-5 py-3 gap-5 flex flex-col overflow-y-auto h-[50vh]">
             <Comment
-              username="Philip W"
-              comment="Some consultants are employed indirectly by the client via a
-              consultancy staffing company, a company that provides
-              consultants on an agency basis.☀"
-              date="October 7, 2018"
+              username="Jean Doe"
+              date="January 9, 2018"
+              comment=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+          quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia,
+          fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit
+          necessitatibus, nihil?"
             />
             <Comment
-              username="Philip W"
-              comment="Some consultants are employed indirectly by the client via a
-            consultancy staffing company, a company that provides
-            consultants on an agency basis."
-              date="October 7, 2018"
+              username="Jean Doe"
+              date="January 9, 2018"
+              comment=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+        quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia,
+        fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit
+        necessitatibus, nihil?"
             />
             <Comment
-              username="Philip W"
-              comment="Some consultants are employed indirectly by the client via a
-            consultancy staffing company, a company that provides
-            consultants on an agency basis."
-              date="October 7, 2018"
-            />
-            <Comment
-              username="Philip W"
-              comment="Some consultants are employed indirectly by the client via a
-          consultancy staffing company, a company that provides
-          consultants on an agency basis."
-              date="October 7, 2018"
+              username="Jean Doe"
+              date="January 9, 2018"
+              comment=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+      quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia,
+      fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit
+      necessitatibus, nihil?"
             />
           </ul>
           <hr />

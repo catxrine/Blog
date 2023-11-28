@@ -1,5 +1,5 @@
-import Post from "./Post";
-import Pagination from "../Pagination";
+import Posts from "./Posts";
+import Pagination from "../Pagination/Pagination";
 import { useParams } from "react-router-dom";
 export default function BlogList() {
   const { category } = useParams();
@@ -15,14 +15,7 @@ export default function BlogList() {
             </div>
           </div>
 
-          <div className="row">
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-          </div>
+          <Posts />
         </div>
       </section>
       <Pagination />

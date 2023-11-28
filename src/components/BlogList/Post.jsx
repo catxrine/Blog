@@ -4,13 +4,13 @@ export default function Post({ author, date, description, title }) {
   return (
     <div className="col-lg-4 mb-4">
       <div className="post-entry-alt">
-        <a href="single.html" className="img-link">
+        <Link to="/article/1" className="img-link">
           <img
             src="/public/images/img_5_horizontal.jpg"
             alt="Image"
             className="img-fluid"
           />
-        </a>
+        </Link>
         <div className="excerpt">
           <h2>
             <Link to="/article/1">

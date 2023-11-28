@@ -8,7 +8,7 @@ export default function NavigationBar() {
   const authorizedTemplate = () => {
     return (
       <li>
-        <Link to="/">Logout</Link>
+        <Link to="/login">Logout</Link>
       </li>
     );
   };

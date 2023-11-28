@@ -1,5 +1,5 @@
 import UserCell from "./UserCell";
-import Pagination from "../Pagination";
+import Pagination from "../Pagination/Pagination";
 
 export default function UsersTable() {
   return (
