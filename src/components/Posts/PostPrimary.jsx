@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Post({ author, date, description, title }) {
+export default function PostPrimary({ author, date, description, title }) {
   return (
     <div className="col-lg-4 mb-4">
       <div className="post-entry-alt">

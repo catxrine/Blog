@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-export default function Post({ title, description, date }) {
+export default function PostTertiary({ title, description, date }) {
   return (
     <div className="col-md-6 col-lg-3">
       <div className="blog-entry">

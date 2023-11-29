@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { isAuth } from "../../constants/user";
+import { isAuth } from "../../utils/user.js";
 export default function CommentsForm() {
   const navigate = useNavigate();
   return (

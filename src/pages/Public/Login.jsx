@@ -1,5 +1,10 @@
-import Input from "../components/Input";
-import { CREATE_ACCOUNT } from "../constants/messages";
+import Input from "../../components/Inputs/Input";
+import {
+  CREATE_ACCOUNT,
+  EMAIL_EXAMPLE,
+  PASSWORD_PLACEHOLDER,
+} from "../../utils/messages.js";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -15,16 +20,20 @@ export default function Login() {
           <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
             <div className="w-full">
               <h1 className="label-primary">Login</h1>
-              <Input label="Email" placeholder="example@gmail.com" />
-              <Input label="Password" placeholder="●●●●●●●●●" type="password" />
+              <Input label="Email" placeholder={EMAIL_EXAMPLE} />
+              <Input
+                label="Password"
+                placeholder={PASSWORD_PLACEHOLDER}
+                type="password"
+              />
               <button className="btn-variant-1">Log in</button>
               <hr className="mt-5" />
-              <a
-                href="/register"
+              <Link
+                to="/register"
                 className="text-sm font-medium text-purple-600 hover:underline"
               >
                 {CREATE_ACCOUNT}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

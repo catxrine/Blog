@@ -1,5 +1,10 @@
-import Input from "../components/Input";
-import { HAVE_AN_ACCOUNT } from "../constants/messages";
+import { Link } from "react-router-dom";
+import Input from "../../components/Inputs/Input";
+import {
+  HAVE_AN_ACCOUNT,
+  EMAIL_EXAMPLE,
+  PASSWORD_PLACEHOLDER,
+} from "../../utils/messages.js";
 
 export default function Register() {
   return (
@@ -16,13 +21,17 @@ export default function Register() {
             <div className="w-full">
               <h1 className="label-primary">Register</h1>
 
-              <Input label="Email" placeholder="example@gmail.com" />
+              <Input label="Email" placeholder={EMAIL_EXAMPLE} />
               <Input label="Username" placeholder="Enter your username" />
 
-              <Input label="Password" placeholder="●●●●●●●●●" type="password" />
+              <Input
+                label="Password"
+                placeholder={PASSWORD_PLACEHOLDER}
+                type="password"
+              />
               <Input
                 label="Repeat Password"
-                placeholder="●●●●●●●●●"
+                placeholder={PASSWORD_PLACEHOLDER}
                 type="password"
               />
 
@@ -30,12 +39,12 @@ export default function Register() {
 
               <hr className="mt-5" />
 
-              <a
-                href="/"
+              <Link
+                to="/login"
                 className="text-sm font-medium text-purple-600 hover:underline"
               >
                 {HAVE_AN_ACCOUNT}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

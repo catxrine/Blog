@@ -1,7 +1,7 @@
-import Posts from "./Posts";
-import Pagination from "../Pagination/Pagination";
+import Pagination from "../../components/Pagination/Pagination";
+import PostPrimary from "../../components/Posts/PostPrimary";
 import { useParams } from "react-router-dom";
-export default function BlogList() {
+export default function Categories() {
   const { category } = useParams();
   return (
     <div>
@@ -14,8 +14,14 @@ export default function BlogList() {
               </h2>
             </div>
           </div>
-
-          <Posts />
+          <div className="row">
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+          </div>
         </div>
       </section>
       <Pagination />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Comments from "./Comments";
+import CommentsDialog from "../../components/Comments/CommentsDialog";
 
 export default function UserPost({ author, title, description, likes }) {
   const [show, setShow] = useState(false);
@@ -38,7 +38,7 @@ export default function UserPost({ author, title, description, likes }) {
           </div>
         </div>
       </div>
-      {show && <Comments setShow={setShow} />}
+      {show && <CommentsDialog setShow={setShow} />}
     </>
   );
 }

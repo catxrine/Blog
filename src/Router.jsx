@@ -1,32 +1,31 @@
 import "../src/styles/App.css";
 import "../src/styles/bootstrap.min.css";
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import PageNotFound from "./components/PageNotFound";
-// import AdminControl from "./pages/Admin/AdminControl";
-// import Home from "./pages/Admin/Home";
+import AdminControl from "./pages/Admin/AdminControl";
 // import Profile from "./pages/Admin/Profile";
 // import Settings from "./pages/Admin/Settings";
 // import UserPost from "./components/UserPost";
 
-import PublicHome from "./pages/Public/PublicHome";
-import Article from "./components/Article/Article";
-import BlogList from "./components/BlogList/BlogList";
+import Home from "./pages/Public/Home";
+import Article from "./pages/Public/Article";
+import Categories from "./pages/Public/Categories";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import PublicLayout from "./components/PublicLayout/PublicLayout";
-import Profile from "./pages/Profile/Profile";
+import Layout from "./components/Layout/Layout";
+import Profile from "./pages/Public/Profile";
+import Login from "./pages/Public/Login";
+import Register from "./pages/Public/Register";
+import PageNotFound from "./pages/UtilPages/PageNotFound";
 
-function App() {
+function Router() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <PublicLayout />,
+      element: <Layout />,
       children: [
         {
           path: "/",
-          element: <PublicHome />,
+          element: <Home />,
         },
         {
           path: "article/:id",
@@ -34,7 +33,7 @@ function App() {
         },
         {
           path: "categories/:category",
-          element: <BlogList />,
+          element: <Categories />,
         },
         {
           path: "user/:userId",
@@ -50,6 +49,10 @@ function App() {
       path: "/register",
       element: <Register />,
     },
+    // {
+    //   path: "admin-panel",
+    //   element: <AdminControl />,
+    // },
     // {
     //   path: "/article",
     //   element: <Article />,
@@ -75,11 +78,6 @@ function App() {
     //     },
 
     //     {
-    //       path: "admin-panel",
-    //       element: <AdminControl />,
-    //     },
-
-    //     {
     //       path: "profile",
     //       element: <Profile />,
     //     },
@@ -97,4 +95,4 @@ function App() {
   return <RouterProvider router={router} />;
 }
 
-export default App;
+export default Router;

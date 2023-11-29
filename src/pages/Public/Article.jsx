@@ -1,14 +1,14 @@
-import Content from "../Content/Content";
-import LatestPosts from "../LatestPosts/LatestPosts";
-import ProfileIntro from "../ProfileIntro/ProfileIntro";
-import Tags from "../Tags/Tags";
+import ArticleContent from "../../components/ArticleContent/ArticleContent";
+import LatestPosts from "../../components/LatestPosts/LatestPosts";
+import ProfileIntro from "../../components/ProfileIntro/ProfileIntro";
+import Tags from "../../components/Tags/Tags";
 
 export default function Article() {
   return (
     <section className="section">
       <div className="container">
         <div className="row blog-entries element-animate">
-          <Content
+          <ArticleContent
             title="Lorem Ipsum"
             info=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
           nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore

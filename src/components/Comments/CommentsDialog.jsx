@@ -1,6 +1,6 @@
-import Comment from "./Comments/Comment";
+import Comments from "./Comments";
 
-export default function Comments({ setShow }) {
+export default function CommentsDialog({ setShow }) {
   return (
     <div className="bg-[#000000ac] w-screen h-screen absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -16,30 +16,7 @@ export default function Comments({ setShow }) {
           </div>
           <hr className="m-0 p-0" />
           <ul className="list-unstyled px-5 py-3 gap-5 flex flex-col overflow-y-auto h-[50vh]">
-            <Comment
-              username="Jean Doe"
-              date="January 9, 2018"
-              comment=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-          quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia,
-          fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit
-          necessitatibus, nihil?"
-            />
-            <Comment
-              username="Jean Doe"
-              date="January 9, 2018"
-              comment=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-        quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia,
-        fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit
-        necessitatibus, nihil?"
-            />
-            <Comment
-              username="Jean Doe"
-              date="January 9, 2018"
-              comment=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-      quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia,
-      fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit
-      necessitatibus, nihil?"
-            />
+            <Comments />
           </ul>
           <hr />
           <form className="w-full bg-white px-5 pb-3">

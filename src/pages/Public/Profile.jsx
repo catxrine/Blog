@@ -1,4 +1,4 @@
-import Posts from "../../components/BlogList/Posts";
+import PostPrimary from "../../components/Posts/PostPrimary";
 import Pagination from "../../components/Pagination/Pagination";
 import ProfileIntro from "../../components/ProfileIntro/ProfileIntro";
 export default function Profile() {
@@ -15,7 +15,14 @@ export default function Profile() {
         debitis voluptate nulla quo veniam fuga sit molestias minus."
             />
           </div>
-          <Posts />
+          <div className="row">
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+            <PostPrimary />
+          </div>
         </div>
       </div>
       <Pagination />

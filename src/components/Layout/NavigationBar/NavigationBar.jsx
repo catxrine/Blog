@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
-import { isAuth } from "../../constants/user";
-import Categories from "../Categories/Categories";
-import "../../../public/js/navbar.js";
+import { isAuth } from "../../../utils/user.js";
+import Categories from "./Categories.jsx";
+import "../../../../public/js/navbar.js";
 
 export default function NavigationBar() {
   const categories = ["All", "Science", "Cooking", "Ideas"];
   const authorizedTemplate = () => {
     return (
       <li>
-        <Link to="/login">Logout</Link>
+        <a onClick={() => localStorage.removeItem("auth")} href="/">
+          Logout
+        </a>
       </li>
     );
   };
