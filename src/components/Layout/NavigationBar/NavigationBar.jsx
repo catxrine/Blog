@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
-import { isAuth } from "../../../utils/user.js";
+import { isAuth, removeAuth } from "../../../utils/user.js";
 import Categories from "./Categories.jsx";
-import "../../../../public/js/navbar.js";
+import { mobileNavigationControl } from "../../../utils/utils.js";
+import { useEffect } from "react";
 
 export default function NavigationBar() {
   const categories = ["All", "Science", "Cooking", "Ideas"];
   const authorizedTemplate = () => {
     return (
       <li>
-        <a onClick={() => localStorage.removeItem("auth")} href="/">
+        <Link to="/login" onClick={removeAuth()} href="/">
           Logout
-        </a>
+        </Link>
       </li>
     );
   };
+
+  useEffect(() => {
+    mobileNavigationControl();
+  });
 
   const unAutorizedTemplate = () => {
     return (
