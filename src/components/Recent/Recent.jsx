@@ -1,4 +1,4 @@
-import PostTertiary from "../Posts/PostTertiary";
+import PostPrimary from "../Posts/PostPrimary";
 
 export default function Recent() {
   return (
@@ -6,10 +6,9 @@ export default function Recent() {
       <div className="container">
         <h2>Recent Posts</h2>
         <div className="row mt-4 bg-gray-50 p-4 rounded">
-          <PostTertiary />
-          <PostTertiary />
-          <PostTertiary />
-          <PostTertiary />
+          <PostPrimary />
+          <PostPrimary />
+          <PostPrimary />
         </div>
       </div>
     </section>

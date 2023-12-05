@@ -9,13 +9,6 @@ export default function Tags({ tagsData }) {
         <Tag text="Science" />
         <Tag text="Science" />
         <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
       </ul>
     </div>
   );

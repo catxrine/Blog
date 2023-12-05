@@ -20,10 +20,6 @@ export default function CommentsForm() {
           <label htmlFor="email">Email *</label>
           <input type="email" className="form-control" id="email" />
         </div>
-        <div className="form-group">
-          <label htmlFor="website">Website</label>
-          <input type="url" className="form-control" id="website" />
-        </div>
 
         <div className="form-group">
           <label htmlFor="message">Message</label>

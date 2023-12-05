@@ -3,7 +3,7 @@ import LatestPosts from "../../components/LatestPosts/LatestPosts";
 import ProfileIntro from "../../components/ProfileIntro/ProfileIntro";
 import Tags from "../../components/Tags/Tags";
 
-export default function Article() {
+export default function Article({ data }) {
   return (
     <section className="section">
       <div className="container">

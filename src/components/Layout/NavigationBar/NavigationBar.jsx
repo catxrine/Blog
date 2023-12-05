@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom";
-import { isAuth, removeAuth } from "../../../utils/user.js";
-import Categories from "./Categories.jsx";
-import { mobileNavigationControl } from "../../../utils/utils.js";
 import { useEffect } from "react";
+import { isAuth, removeAuth } from "../../../utils/user.js";
+import { mobileNavigationControl } from "../../../utils/utils.js";
+import Categories from "./Categories.jsx";
 
 export default function NavigationBar() {
   const categories = ["All", "Science", "Cooking", "Ideas"];
   const authorizedTemplate = () => {
     return (
-      <li>
-        <Link to="/login" onClick={removeAuth()} href="/">
-          Logout
-        </Link>
-      </li>
+      <Link to="/login" onClick={removeAuth()}>
+        Logout
+      </Link>
     );
   };
 
