@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input-variant-1 {
+    @apply block w-full mt-1 text-sm border-[1px] rounded p-2 border-gray-400 focus:border-purple-400 focus:outline-none;
+  }
+  .input-variant-2 {
+    @apply w-full p-2 border-[2px] rounded border-gray-800 text-base bg-transparent text-gray-600 focus:outline-none;
+  }
+  .input-variant-3 {
+    @apply rounded w-full min-w-[40vw] max-w-[40vw] bg-gray-100 p-3 border border-gray-300 outline-none;
+  }
+  .btn-variant-1 {
+    @apply block cursor-pointer w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none;
+  }
+  .label-primary {
+    @apply mb-4 text-center text-2xl font-semibold text-gray-700;
+  }
+  .tags-style {
+    @apply text-purple-700 bg-purple-100 border px-3 font-semibold py-1.5 rounded-lg shadow-sm text-sm;
+  }
+  .btn-variant-2 {
+    @apply block px-7 py-3 mt-4 text-lg font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none;
+  }
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: black;
+  box-sizing: border-box;
+}
+/* Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+  width: 9px;
+}
+*::-webkit-scrollbar-track {
+  background: rgb(246, 246, 246);
+  border-radius: 8px;
+  max-height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #3f3d56ad;
+  border-radius: 14px;
+  max-height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  min-height: 10px;
+}
