@@ -1,16 +1,20 @@
 import "../src/styles/App.css";
 import "../src/styles/bootstrap.min.css";
 
-import Home from "./pages/Public/Home";
-import Article from "./pages/Public/Article";
-import Categories from "./pages/Public/Categories";
-
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import Profile from "./pages/Public/Profile";
-import Login from "./pages/Public/Login";
-import Register from "./pages/Public/Register";
+
+import Loader from "../src/pages/UtilPages/Loader";
 import PageNotFound from "./pages/UtilPages/PageNotFound";
+
+const Settings = lazy(() => import("./pages/Authorized/Settings"));
+const Layout = lazy(() => import("./components/Layout/Layout"));
+const Profile = lazy(() => import("./pages/Public/Profile"));
+const Login = lazy(() => import("./pages/Public/Login"));
+const Register = lazy(() => import("./pages/Public/Register"));
+const Article = lazy(() => import("./pages/Public/Article"));
+const Categories = lazy(() => import("./pages/Public/Categories"));
+const Home = lazy(() => import("./pages/Public/Home"));
 
 function Router() {
   const router = createBrowserRouter([
@@ -20,29 +24,61 @@ function Router() {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Home />
+            </Suspense>
+          ),
         },
         {
           path: "article/:id",
-          element: <Article />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Article />
+            </Suspense>
+          ),
         },
         {
           path: "categories/:category",
-          element: <Categories />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Categories />
+            </Suspense>
+          ),
         },
         {
           path: "user/:userId",
-          element: <Profile />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Profile />
+            </Suspense>
+          ),
+        },
+        {
+          path: "settings",
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Settings />
+            </Suspense>
+          ),
         },
       ],
     },
     {
       path: "/login",
-      element: <Login />,
+      element: (
+        <Suspense fallback={<Loader />}>
+          <Login />
+        </Suspense>
+      ),
     },
     {
       path: "/register",
-      element: <Register />,
+      element: (
+        <Suspense fallback={<Loader />}>
+          <Register />
+        </Suspense>
+      ),
     },
     {
       path: "*",

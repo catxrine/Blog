@@ -1,4 +1,7 @@
 import Input from "../../components/Inputs/Input";
+import { useForm } from "react-hook-form";
+import { logIn } from "../../services/User.js";
+import { useState } from "react";
 import {
   CREATE_ACCOUNT,
   EMAIL_EXAMPLE,
@@ -7,6 +10,9 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  const { register, handleSubmit } = useForm();
+  const [errorMessage, setErrorMessage] = useState("");
+
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-200">
       <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl">
@@ -20,14 +26,33 @@ export default function Login() {
           <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
             <div className="w-full">
               <h1 className="label-primary">Login</h1>
-              <Input label="Email" placeholder={EMAIL_EXAMPLE} />
-              <Input
-                label="Password"
-                placeholder={PASSWORD_PLACEHOLDER}
-                type="password"
-              />
-              <button className="btn-variant-1">Log in</button>
-              <hr className="mt-5" />
+              <form
+                onSubmit={handleSubmit((e) =>
+                  logIn(
+                    { email: e.email, password: e.password },
+                    setErrorMessage
+                  )
+                )}
+              >
+                <Input
+                  register={register}
+                  label="Email"
+                  name="email"
+                  placeholder={EMAIL_EXAMPLE}
+                />
+                <Input
+                  register={register}
+                  label="Password"
+                  name="password"
+                  placeholder={PASSWORD_PLACEHOLDER}
+                  type="password"
+                />
+                <button type="submit" className="btn-variant-1">
+                  Log in
+                </button>
+              </form>
+              {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+              <hr className="mt-3" />
               <Link
                 to="/register"
                 className="text-sm font-medium text-purple-600 hover:underline"

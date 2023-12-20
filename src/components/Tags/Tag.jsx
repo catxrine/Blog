@@ -1,7 +1,7 @@
-export default function Tag({ text }) {
+export default function Tag({ label }) {
   return (
     <li className="tags-style cursor-pointer">
-      <a>{text}</a>
+      <a>{label}</a>
     </li>
   );
 }

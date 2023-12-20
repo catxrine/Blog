@@ -1,37 +1,39 @@
 import { Link } from "react-router-dom";
 
-export default function PostPrimary({ author, date, description, title }) {
+export default function PostPrimary({ data }) {
+  const postDirectory = `/article/${data.id}`;
+
   return (
     <div className="col-lg-4 mb-4">
       <div className="post-entry-alt">
-        <Link to="/article/1" className="img-link">
+        <Link to={postDirectory} className="img-link">
           <img
-            src="/public/images/img_5_horizontal.jpg"
-            alt="Image"
-            className="img-fluid"
+            src={data.image}
+            alt="image"
+            className="object-cover h-48 w-96"
           />
         </Link>
-        <div className="excerpt">
-          <h2>
-            <Link to="/article/1">
-              Startup vs corporate: What job suits you best?
-            </Link>
-          </h2>
-          <div className="post-meta align-items-center text-left clearfix">
-            <span className="d-inline-block mt-1">
-              By <Link to="/user/1">David Anderson</Link>
-            </span>
-            <span>&nbsp;-&nbsp; July 19, 2019</span>
-          </div>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt
-            tempora dolor laudantium sed optio, explicabo ad deleniti impedit
-            facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id
-            est.
-          </p>
-          <Link to="/article/1">Continue Reading</Link>
+        <h2 className="m-0 p-0">
+          <Link to={postDirectory}>{data.title}</Link>
+        </h2>
+        <div className="post-meta align-items-center text-left clearfix">
+          <span className="d-inline-block mt-1">
+            By&nbsp;
+            <Link to={`/user/${data.created_by}`}>{data.creator?.name}</Link>
+          </span>
+          <span>
+            &nbsp;-&nbsp;
+            {new Date(data.created_at).toLocaleDateString()},&nbsp;
+            {new Date(data.created_at).toLocaleTimeString()}
+          </span>
         </div>
+
+        <p className="break-all h-[120px]">
+          {data.description.length >= 200
+            ? data.description.slice(0, 200) + "..."
+            : data.description}
+        </p>
+        <Link to={postDirectory}>Continue Reading</Link>
       </div>
     </div>
   );

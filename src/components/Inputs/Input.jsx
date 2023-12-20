@@ -1,13 +1,20 @@
 export default function Input({
-  label,
   placeholder,
   type = "text",
+  label,
+  name,
+  register,
   style = "input-variant-1",
 }) {
   return (
-    <label className="block my-4 text-base">
-      <span className="text-gray-700 ">{label}</span>
-      <input className={style} placeholder={placeholder} type={type} />
+    <label className="flex flex-col text-base">
+      <span className="text-gray-700">{label}</span>
+      <input
+        {...register(name)}
+        className={style}
+        placeholder={placeholder}
+        type={type}
+      />
     </label>
   );
 }

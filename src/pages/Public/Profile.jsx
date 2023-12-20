@@ -1,6 +1,9 @@
 import PostPrimary from "../../components/Posts/PostPrimary";
-import Pagination from "../../components/Pagination/Pagination";
 import ProfileIntro from "../../components/ProfileIntro/ProfileIntro";
+import Pagination from "../../components/Pagination/Pagination";
+import { isAuth } from "../../utils/user";
+import AuthUserProfileView from "../../components/AuthUserProfileView";
+
 export default function Profile() {
   return (
     <div>
@@ -15,17 +18,21 @@ export default function Profile() {
         debitis voluptate nulla quo veniam fuga sit molestias minus."
             />
           </div>
-          <div className="row">
-            <PostPrimary />
-            <PostPrimary />
-            <PostPrimary />
-            <PostPrimary />
-            <PostPrimary />
-            <PostPrimary />
-          </div>
+          {isAuth ? (
+            <AuthUserProfileView />
+          ) : (
+            <div>
+              <div className="flex flex-row flex-wrap mt-5 pb-5">
+                {/* <PostPrimary />
+                <PostPrimary />
+                <PostPrimary /> */}
+                posts
+              </div>
+              <Pagination />
+            </div>
+          )}
         </div>
       </div>
-      <Pagination />
     </div>
   );
 }

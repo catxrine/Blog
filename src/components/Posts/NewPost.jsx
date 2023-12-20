@@ -1,6 +1,6 @@
 export default function NewPost({ setShow }) {
   return (
-    <div className="rounded mb-4 mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 max-w-2xl">
+    <div className="rounded mb-10 mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 max-w-2xl">
       <input
         className="title rounded bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
         spellCheck="false"

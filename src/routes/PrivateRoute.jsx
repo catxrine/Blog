@@ -1,4 +1,5 @@
+import { isAuth } from "../utils/user";
+
 export default function PrivateRoute({ children, redirectPath = "/" }) {
-  const user = localStorage.getItem("auth");
-  return user ? children : (window.location.pathname = redirectPath);
+  return isAuth ? children : (window.location.pathname = redirectPath);
 }

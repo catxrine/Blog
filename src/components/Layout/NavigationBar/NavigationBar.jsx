@@ -5,12 +5,21 @@ import { mobileNavigationControl } from "../../../utils/utils.js";
 import Categories from "./Categories.jsx";
 
 export default function NavigationBar() {
-  const categories = ["All", "Science", "Cooking", "Ideas"];
   const authorizedTemplate = () => {
     return (
-      <Link to="/login" onClick={removeAuth()}>
-        Logout
-      </Link>
+      <>
+        <li>
+          <Link to="/login" onClick={() => removeAuth()}>
+            Logout
+          </Link>
+        </li>
+        <li>
+          <Link to={`/user/6`}>Profile</Link>
+        </li>
+        <li>
+          <Link to={`/settings`}>Settings</Link>
+        </li>
+      </>
     );
   };
 
@@ -57,10 +66,11 @@ export default function NavigationBar() {
                     <li className="active">
                       <Link to="/">Home</Link>
                     </li>
+
                     <li className="has-children">
                       <a>Categoties</a>
                       <ul className="dropdown">
-                        <Categories categories={categories} />
+                        <Categories />
                       </ul>
                     </li>
                     {isAuth ? authorizedTemplate() : unAutorizedTemplate()}

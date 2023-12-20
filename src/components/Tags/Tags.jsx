@@ -4,11 +4,11 @@ export default function Tags({ tagsData }) {
     <div className="sidebar-box">
       <h3 className="heading">Tags</h3>
       <ul className="tags">
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
-        <Tag text="Science" />
+        <Tag label="Science" />
+        <Tag label="Science" />
+        <Tag label="Science" />
+        <Tag label="Science" />
+        <Tag label="Science" />
       </ul>
     </div>
   );

@@ -72,3 +72,5 @@ export const mobileNavigationControl = () => {
     }
   });
 };
+
+export const categories = ["all", "science", "cooking", "ideas"];
