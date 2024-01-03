@@ -3,17 +3,21 @@ import Input from "../../components/Inputs/Input";
 import { useForm } from "react-hook-form";
 import { registerUser } from "../../services/User.js";
 import { useState } from "react";
+import Loader from "../UtilPages/Loader.jsx";
 
 import {
   HAVE_AN_ACCOUNT,
   EMAIL_EXAMPLE,
   PASSWORD_PLACEHOLDER,
 } from "../../utils/messages.js";
+import { handleErrorMessage } from "../../utils/utils.js";
 
 export default function Register() {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  if (loading) return <Loader />;
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-200">
       <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl">
@@ -28,17 +32,20 @@ export default function Register() {
             <div className="w-full">
               <h1 className="label-primary">Register</h1>
               <form
-                onSubmit={handleSubmit((e) =>
-                  registerUser(
-                    {
-                      name: e.username,
-                      email: e.email,
-                      password: e.password,
-                      repeatPassword: e.c_password,
-                    },
-                    setErrorMessage
-                  )
-                )}
+                onSubmit={handleSubmit((e) => {
+                  setLoading(true);
+                  registerUser(e)
+                    .then((res) => {
+                      if (res.success) {
+                        localStorage.setItem("jwt", res.data.token);
+                        window.location.pathname = `/user/${res.data.id}`;
+                      } else {
+                        setErrorMessage(Object.values(res.data));
+                      }
+                    })
+                    .catch((err) => handleErrorMessage(err))
+                    .finally(() => setLoading(false));
+                })}
               >
                 <Input
                   register={register}

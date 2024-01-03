@@ -74,3 +74,16 @@ export const mobileNavigationControl = () => {
 };
 
 export const categories = ["all", "science", "cooking", "ideas"];
+
+export function handleErrorMessage(err) {
+  const handleMessage = (data) =>
+    data.message && isNaN(data.message.trim())
+      ? data.message
+      : "Неустановена грешка";
+
+  return err.response && err.response.data
+    ? err.response.data.errors && err.response.data.errors.length
+      ? err.response.data.errors[0].message
+      : handleMessage(err.response.data)
+    : handleMessage(err);
+}

@@ -31,7 +31,9 @@ export default function NavigationBar() {
     return (
       <>
         <li>
-          <Link to="/login">Login</Link>
+          <Link to="/login" onClick={() => removeAuth()}>
+            Login
+          </Link>
         </li>
         <li>
           <Link to="/register">Register</Link>

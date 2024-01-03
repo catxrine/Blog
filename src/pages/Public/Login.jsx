@@ -1,6 +1,8 @@
 import Input from "../../components/Inputs/Input";
 import { useForm } from "react-hook-form";
 import { logIn } from "../../services/User.js";
+import { handleErrorMessage } from "../../utils/utils.js";
+import Loader from "../UtilPages/Loader.jsx";
 import { useState } from "react";
 import {
   CREATE_ACCOUNT,
@@ -12,6 +14,9 @@ import { Link } from "react-router-dom";
 export default function Login() {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  if (loading) return <Loader />;
 
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-200">
@@ -27,12 +32,20 @@ export default function Login() {
             <div className="w-full">
               <h1 className="label-primary">Login</h1>
               <form
-                onSubmit={handleSubmit((e) =>
-                  logIn(
-                    { email: e.email, password: e.password },
-                    setErrorMessage
-                  )
-                )}
+                onSubmit={handleSubmit((e) => {
+                  setLoading(true);
+                  logIn(e)
+                    .then((res) => {
+                      if (res.success) {
+                        localStorage.setItem("jwt", res.data.token);
+                        window.location.pathname = `/user/${res.data.id}`;
+                      } else {
+                        setErrorMessage(Object.values(res.data));
+                      }
+                    })
+                    .catch((err) => handleErrorMessage(err))
+                    .finally(() => setLoading(false));
+                })}
               >
                 <Input
                   register={register}
@@ -47,9 +60,7 @@ export default function Login() {
                   placeholder={PASSWORD_PLACEHOLDER}
                   type="password"
                 />
-                <button type="submit" className="btn-variant-1">
-                  Log in
-                </button>
+                <button className="btn-variant-1">Log in</button>
               </form>
               {errorMessage && <p className="text-red-500">{errorMessage}</p>}
               <hr className="mt-3" />

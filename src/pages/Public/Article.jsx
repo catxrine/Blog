@@ -1,52 +1,37 @@
+import { useParams } from "react-router-dom";
+import { getArticle } from "../../services/Article";
+import { useEffect, useState } from "react";
+import Loading from "../UtilPages/Loader";
 import ArticleContent from "../../components/ArticleContent/ArticleContent";
-import LatestPosts from "../../components/LatestPosts/LatestPosts";
 import ProfileIntro from "../../components/ProfileIntro/ProfileIntro";
+import LatestPosts from "../../components/LatestPosts/LatestPosts";
 import Tags from "../../components/Tags/Tags";
 
-export default function Article({ data }) {
+export default function Article() {
+  const { id } = useParams();
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+
+    getArticle(id)
+      .then((res) => setData(res))
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  console.log(data);
+  if (loading) return <Loading />;
   return (
     <section className="section">
       <div className="container">
         <div className="row blog-entries element-animate">
-          <ArticleContent
-            title="Lorem Ipsum"
-            info=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro.
-          numquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima enumquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima enumquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima e
-          numquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima enumquam, minima eius. Nam eius, non unde ut aut
-          sunt eveniet rerum repellendus porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore
-          earum autem nobis et numquam, minima e
-          "
-          />
+          <ArticleContent data={data} />
 
           <div className="col-md-12 col-lg-4 sidebar">
-            <ProfileIntro
-              username="Hannah Anderson"
-              bio=" Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Exercitationem facilis sunt repellendus excepturi beatae porro
-            debitis voluptate nulla quo veniam fuga sit molestias minus."
-            />
+            <ProfileIntro data={data} />
             <LatestPosts />
             <Tags />
           </div>

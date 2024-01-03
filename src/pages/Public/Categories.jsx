@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { categories } from "../../utils/utils";
-import { fetchData } from "../../utils/fetchData";
+import { handleErrorMessage } from "../../utils/utils";
 
 import Pagination from "../../components/Pagination/Pagination";
 import PostPrimary from "../../components/Posts/PostPrimary";
 import Loader from "../UtilPages/Loader";
 import CheckParam from "./../../routes/CheckParam";
+import { getPosts } from "./../../services/Article";
 
 export default function Categories() {
   const { category } = useParams();
@@ -18,14 +19,17 @@ export default function Categories() {
   useEffect(() => {
     setLoading(true);
 
-    fetchData({
-      url: `/api/posts?page=${currentPage}`,
-      method: "GET",
-    }).then((res) => {
-      setPosts(res.data);
-      setPages(res.last_page);
-      setLoading(false);
-    });
+    getPosts(currentPage)
+      .then((res) => {
+        setPosts(res.data);
+        setPages(res.last_page);
+      })
+      .catch((err) => {
+        handleErrorMessage(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [currentPage]);
 
   if (loading) return <Loader />;

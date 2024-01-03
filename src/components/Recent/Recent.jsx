@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { fetchData } from "../../utils/fetchData";
+import { getPosts } from "../../services/Article";
+import { handleErrorMessage } from "../../utils/utils";
 
 import PostPrimary from "../Posts/PostPrimary";
 import Loader from "../../pages/UtilPages/Loader";
@@ -11,13 +12,17 @@ export default function Recent() {
   useEffect(() => {
     setLoading(true);
 
-    fetchData({
-      url: "/api/posts?page=1",
-      method: "GET",
-    }).then((res) => {
-      setPosts(res.data.slice(0, 3));
-      setLoading(false);
-    });
+    getPosts(1)
+      .then((res) => {
+        setPosts(res.data.slice(0, 3));
+        setLoading(false);
+      })
+      .catch((err) => {
+        handleErrorMessage(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   if (loading) return <Loader />;

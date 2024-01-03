@@ -9,7 +9,7 @@ export default function AuthUserProfileView() {
         <NewPost setShow={setShow} />
       ) : (
         <div
-          className={`overflow-y-auto rounded-lg w-[20vw] sm:w-full h-[85vh] py-2 py-1 flex flex-col bg-gray-50 mb-10`}
+          className={`overflow-y-auto rounded-lg w-[20vw] sm:w-full h-[85vh] py-2 flex flex-col bg-gray-50 mb-10`}
         >
           <div className="flex flex-row gap-1 justify-center">
             <div className="flex flex-row mt-1 gap-10">

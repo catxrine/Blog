@@ -2,10 +2,14 @@ import CommentsForm from "./CommentsForm";
 import Comment from "./Comment";
 import Pagination from "../Pagination/Pagination";
 
-export default function CommentsSection({ commentsData }) {
+export default function CommentsSection({ commentsCount }) {
   return (
     <div className="pt-5 comment-wrap">
-      <h3 className="mb-5 heading">6 Comments</h3>
+      <h3 className="mb-5 heading">
+        {commentsCount === 1
+          ? `${commentsCount} Comment`
+          : `${commentsCount} Comments`}
+      </h3>
       <ul className="comment-list">
         <Comment
           username="Jean Doe"
